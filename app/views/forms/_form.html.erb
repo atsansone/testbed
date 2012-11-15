@@ -1,0 +1,27 @@
+<%= form_for(@form) do |f| %>
+  <% if @form.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@form.errors.count, "error") %> prohibited this form from being saved:</h2>
+
+      <ul>
+      <% @form.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <%= f.label :check, "Share With", class: "control-label" %>
+
+
+    <%= f.check_box(:check, {multiple: true}, "WAA", nil) %>
+    <%= f.label(:check_waa, "WAA") %>
+    <%= f.check_box(:check, {multiple: true}, "School", nil) %>
+    <%= f.label(:check_school, "School") %>
+    <%= f.check_box(:check, {multiple: true}, "Major", nil) %>
+    <%= f.label(:check_major, "Major") %>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
+
